@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Twitch Bot</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="client.js"></script>
+</head>
+
+<body style="background-color: blueviolet;">
+    <h1 style="text-align:center;"> Easy Twitch Bot </h1>
+    <section id="stabela">
+        <div>
+            <h2 style="text-align:center;">Comandos Ativos</h2>
+            <h3 style="text-align:center; color:yellow">Novos comandos: use <strong>!CCom</strong></h3>
+            <table>
+                <tr>
+                    <th>Slot #</th>
+                    <th>Comando</th>
+                    <!--<th>Resposta</th>-->
+                </tr>
+                <tr id="tr1">
+                    <td>1</td>
+                    <td id="com1">comando1</td>
+                    <!-- <td id="res1">resposta1!</td>-->
+                </tr>
+                <tr id="tr2">
+                    <td>2</td>
+                    <td id="com2">comando2</td>
+                    <!-- <td id="res2">resposta2!</td>-->
+                </tr>
+                <tr id="tr3">
+                    <td>3</td>
+                    <td id="com3">comando3</td>
+                    <!-- <td id="res3">resposta3!</td>-->
+                </tr>
+                <tr id="tr4">
+                    <td>4</td>
+                    <td id="com4">comando4</td>
+                    <!--<td id="res4">resposta4!</td>-->
+                </tr>
+                <tr id="tr5">
+                    <td>5</td>
+                    <td id="com5">comando5</td>
+                    <!--<td id="res5">resposta5!</td>-->
+                </tr>
+                <tr id="tr6">
+                    <td>6</td>
+                    <td id="com6">comando6</td>
+                    <!-- <td id="res6">resposta6!</td>-->
+                </tr>
+                <tr id="tr7">
+                    <td>7</td>
+                    <td id="com7">comando7</td>
+                    <!--<td id="res7">resposta7!</td>-->
+                </tr>
+                <tr id="tr8">
+                    <td>8</td>
+                    <td id="com8">comando8</td>
+                    <!--<td id="res8">resposta8!</td>-->
+                </tr>
+                <tr id="tr9">
+                    <td>9</td>
+                    <td id="com9">comando9</td>
+                    <!--<td id="res9">resposta9!</td>-->
+                </tr>
+            </table>
+
+        </div>
+    </section>
+    <section id="sdados">
+        <div id="config">
+            <h2>Configuração</h2>
+            <form>
+                <p><label>Nome do bot do canal: </label> <input type="text" id="txtuser" value="vilelabot"
+                        autocomplete="username"></P>
+                <p><label>Nome do Canal: </label><input type="text" id="txtchan" value="henriquevilelamusic"
+                        autocomplete="username"></p>
+                <p><label>Token de Autenticação:</label> <input type="password" id="txtauth"
+                        autocomplete="current-password"></p>
+                <p style="text-align:center;"><input type="button" value="Conferir Dados" id="btnanalisar"
+                        onclick="analisar()"></p>
+            </form>
+        </div>
+        <div id="connected" style="display: none;">
+            <h2>Bot conectado com a Twitch!</h2>
+        </div>
+    </section>
+</body>
+
+</html>

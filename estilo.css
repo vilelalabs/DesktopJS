@@ -1,0 +1,55 @@
+body{
+    font: normal 20px Arial ;
+    color:white;
+}
+
+h2{
+    text-align: center;
+}
+
+div{
+    margin-left: auto;
+    margin-right: auto;
+    width: 550px;
+    background-color: rgb(90, 28, 148);
+    border-radius: 10px;
+}
+
+section#sdados{
+    float: center;
+    
+}
+section#stabela{
+    float: center;
+    
+}
+
+label {
+	display: block;
+    float: left;
+    width:250px;
+    margin-left: 20px;
+}
+label, input {
+    margin-bottom: 10px;
+}
+input {
+    width:230px;
+    margin-right: 20px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #4c3beb;
+  }
