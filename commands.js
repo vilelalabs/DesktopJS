@@ -1,3 +1,6 @@
+
+
+/**************************************** PARA USO DO MAIN.JS **************************************/
 var arrayCom = [];
 var arrayRes = [];
 
@@ -34,8 +37,8 @@ function CriarComandos(msg, client, target, win) {
         return;
     }
 
-    if (comm.indexOf('!') != -1 || comm.indexOf(' ') != -1 || comm.indexOf('<') != -1) {
-        client.say(target, "Comando NÃO salvo! Você não pode/precisa usar [!], espaço[ ] ou [<] nos seus comandos!");
+    if (comm.indexOf('!') != -1 || comm.indexOf(' ') != -1 || comm.indexOf('<') != -1 || comm.indexOf('>') != -1) {
+        client.say(target, "Comando NÃO salvo! Você não pode/precisa usar [!], espaço[ ] ou [< >] nos seus comandos!");
         return;
     }
 
@@ -76,7 +79,7 @@ function AtivarComandos(commandName, client, target) {
         for (let i = 0; i < 9; i++) {
             if (commandName == arrayCom[i]) {
                 if (arrayRes[i] !== undefined) {
-                    client.say(target, arrayRes[i]);
+                    client.say(target, `/me ${arrayRes[i]}`);
                     console.log(`* Comando ${arrayCom[i]} executado!`);
                 }
                 else
@@ -86,4 +89,111 @@ function AtivarComandos(commandName, client, target) {
     }
 }
 
-module.exports = { CriarComandos, AtivarComandos, AtualizaCom, AtualizaRes };
+/*************************************** PARA USO DO CLIENT.JS *************************************/
+
+var resTr = [];         // resposta para transferencia para o Main.js
+var novoComando = [];   // salva comando e resposta vindos do chat da Twitch
+var comTxt = [];
+var resTxt = [];        //envia os dados de repostas para o Main.js
+
+
+// contador para os comandos
+function contadorCom() {
+    // Check to see if the counter has been initialized
+    if (typeof contadorCom.counter == 'undefined' || contadorCom.counter == 8) {
+        // It has not... perform the initialization
+        contadorCom.counter = -1;
+    }
+    return (++contadorCom.counter);
+}
+//contador para as respostas
+function contadorRes() {
+    // Check to see if the counter has been initialized
+    if (typeof contadorRes.counter == 'undefined' || contadorRes.counter == 8) {
+        // It has not... perform the initialization
+        contadorRes.counter = -1;
+    }
+    return (++contadorRes.counter);
+}
+
+
+function ReceberNovoComando(nComando) {
+    novoComando = nComando;
+}
+
+function ExibeComandos() {
+    let command = novoComando[0];
+    let response = novoComando[1];
+
+    let com = [];
+    for (let i = 1; i <= 9; i++) {
+        com.push(document.getElementById(`com${i}`));
+    };
+
+
+    let tr = [];
+    for (let i = 1; i <= 9; i++) {
+        tr.push(document.getElementById(`tr${i}`));
+    };
+
+    let comPos = contadorCom();
+    let resPos = contadorRes();
+
+    com[comPos].innerText = `!${command}`;
+
+    resTr[resPos] = response;
+    //envia os dados de repostas para o Main.js
+    for (let i = 0; i < 9; i++) {
+        resTxt.push(resTr[i]);
+    };
+    console.log(resTxt);
+
+    //envia os dados de comandos para o Main.js
+    for (let i = 0; i < 9; i++) {
+        comTxt.push(com[i].innerHTML);
+    };
+    console.log(comTxt);
+
+    for (let i = 0; i < 9; i++) {
+        if (i % 2 != 0) {
+            tr[i].style.backgroundColor = "#4c3beb";
+            tr[i].style.color = "white";
+        }
+        else {
+            tr[i].style.backgroundColor = "rgb(90, 28, 148)";
+            tr[i].style.color = "white";
+        }
+
+        if (i == comPos) {
+            tr[i].style.backgroundColor = "rgb(28, 255, 255)";
+            tr[i].style.color = "black";
+            tr[i].style.font.bold = "true";
+        }
+    }
+}
+
+function GetResTxt() {
+    console.log(resTxt);
+    return resTxt;
+}
+
+function GetComTxt() {
+    console.log(comTxt);
+    return comTxt;
+}
+
+function ZerarResCom() {
+    while (resTxt.length) {
+        resTxt.pop();
+    }
+    while (comTxt.length) {
+        comTxt.pop();
+    }
+}
+
+
+
+module.exports = {
+    CriarComandos, AtivarComandos, AtualizaCom, AtualizaRes,              // main.js
+    ReceberNovoComando, ExibeComandos, GetResTxt, GetComTxt, ZerarResCom  // client.js
+};
