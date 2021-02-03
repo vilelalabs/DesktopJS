@@ -92,12 +92,7 @@ function gravarChat() {
     com.push(document.getElementById(`com${i}`));
   };
 
-  /*
-    let res = [];
-  
-    for (let i = 1; i <= 9; i++) {
-      res.push(document.getElementById(`res${i}`));
-    };*/
+
 
 
   let tr = [];
@@ -113,8 +108,6 @@ function gravarChat() {
   //guarda os valores nos arrays de comando e resposta
   com[comPos].innerText = `!${command}`;
 
-
-  /*res[resPos].innerText = response;*/
   resTr[resPos] = response;
   //envia os dados de repostas para o Main.js
   let resTxt = [];
@@ -123,9 +116,6 @@ function gravarChat() {
   };
   console.log(resTxt);
   ipcRenderer.send('enviaRes', resTxt);
-
-  // corta resposta para caber no layout 
-  /*res[resPos].innerHTML = response.length > 10 ? `${response.substring(0, 8)}...` : `${response}`;*/
 
   //envia os dados de comandos para o Main.js
   let comTxt = [];
