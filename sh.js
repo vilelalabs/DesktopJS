@@ -12,6 +12,7 @@ function onJoin(channel, username, self, client) {
         'julhamarcolan',
         'julialabs',
         'kaduzius',
+        'locutormobile',
         'maikemota',
         'pokemaobr',
         'profbrunolopes',

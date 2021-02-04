@@ -66,6 +66,17 @@ function CriarComandos(msg, client, target, win) {
 
     client.say(target, `Seu comando, ${comm} , foi criado com sucesso! Você já pode testar ele agora!`);
 
+    let arrayArquivo = [];
+
+    for (let i = 0; i <= arrayCom.length; i++) {
+        if (arrayRes[i] !== undefined)
+            arrayArquivo.push(`${arrayCom[i]}|${arrayRes[i]}\n`);
+        else
+            arrayRes[i] = `${arrayCom[i]}|${arrayRes[i]}\n`;
+    }
+    arrayArquivo.push(`${comm}|${resp}\n`);
+
+    GravarArquivo(arrayArquivo);
 }
 
 //verifica quando o comando foi chamado pelo chat
@@ -154,6 +165,8 @@ function ExibeComandos() {
     };
     console.log(comTxt);
 
+
+
     for (let i = 0; i < 9; i++) {
         if (i % 2 != 0) {
             tr[i].style.backgroundColor = "#4c3beb";
@@ -171,6 +184,8 @@ function ExibeComandos() {
         }
     }
 }
+
+
 
 function GetResTxt() {
     console.log(resTxt);
@@ -192,8 +207,50 @@ function ZerarResCom() {
 }
 
 
+/*******************************  PARA USO DO GRAVAÇÃO EM ARQUIVO  *********************************/
+
+//teste do acesso ao filesystem
+const fs = require('fs');
+
+var dadosT = ''; // para teste de leitura de dados em arquivo
+var comandos = [];
+
+//function LerArquivo() {
+//lê arquivo de teste
+fs.readFile(`./comandos.txt`, 'utf-8', function (err, data) {
+    if (err) throw err;
+    console.log(data);
+    dadosT = data;
+    console.log('-----------');
+
+    for (let i = 1; i <= 9; i++) {
+        if (dadosT.indexOf(`${i}<`) != -1)
+            comandos.push(dadosT.substring(dadosT.indexOf(`${i}<`) + 2, dadosT.indexOf(`>${i}`)));
+    }
+    console.log(comandos);
+
+});
+//}
+
+function GravarArquivo(aCom) {
+
+    let arquivo = aCom;
+
+    console.log(`arquivo> ${arquivo}`);
+    fs.writeFile(`${__dirname}/comandos.txt`, arquivo, { encoding: 'utf-8', flag: 'w' }, function (err) {
+        if (err) throw err;
+        console.log('Arquivo salvo');
+    })
+}
+
+
+
+
+
 
 module.exports = {
     CriarComandos, AtivarComandos, AtualizaCom, AtualizaRes,              // main.js
-    ReceberNovoComando, ExibeComandos, GetResTxt, GetComTxt, ZerarResCom  // client.js
+    ReceberNovoComando, ExibeComandos, GetResTxt, GetComTxt, ZerarResCom,  // client.js
+    GravarArquivo
+
 };

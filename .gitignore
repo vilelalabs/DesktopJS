@@ -3,5 +3,6 @@ node_modules/
 server.js
 out/
 
+package-lock.json
 
 teste.txt

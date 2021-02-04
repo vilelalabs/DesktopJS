@@ -7,34 +7,6 @@ const commands = require('./commands.js');
 
 var comandos = [];
 
-/*
-//teste do acesso ao filesystem
-const fs = require('fs');
-
-var dadosT = ''; // para teste de leitura de dados em arquivo
-
-//lê arquivo de teste
-fs.readFile(`./teste.txt`, 'utf-8', function (err, data) {
-  if (err) throw err;
-  console.log(data);
-  dadosT = data;
-  console.log('-----------');
-
-  for (let i = 1; i <= 9; i++) {
-    let comandoValido = dadosT.indexOf(`[${i}s]`);
-    if (comandoValido != -1)
-      comandos.push(dadosT.substring(dadosT.indexOf(`[${i}s]`) + 4, dadosT.indexOf(`[${i}e]`)));
-  }
-  console.log(comandos);
-
-});
-
-//escreve arquivo de teste
-fs.writeFile(`./teste.txt`, 'Hello World!\n', { encoding: 'utf-8', flag: 'a' }, function (err) {
-
-  if (err) throw err;
-  console.log('Arquivo salvo');
-}) */
 
 //cria janela globalmente para poder ser acessada por outras funções além da createWindow
 var win;
@@ -105,6 +77,8 @@ ipcMain.on('enviadados', (event, arg) => {
 
   // Create a client with our options
   client = new tmi.client(opts);
+
+  //chamar função para carregar os comandos no bot (LoadFile)
 
   client.on('message', onMessageHandler);
   client.on('connected', onConnectedHandler);
