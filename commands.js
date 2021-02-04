@@ -64,37 +64,26 @@ function CriarComandos(msg, client, target, win) {
 
     win.webContents.send('novoComando', comandoResposta);
 
-    client.say(target, `Seu comando, ${comm} , foi criado com sucesso! Você já pode testar ele agora!`);
+    client.say(target, `Seu comando [${comm}] foi criado com sucesso! Você já pode testar ele agora!`);
 
-    let arrayArquivo = [];
-
-    for (let i = 0; i <= arrayCom.length; i++) {
-        if (arrayRes[i] !== undefined)
-            arrayArquivo.push(`${arrayCom[i]}|${arrayRes[i]}\n`);
-        else
-            arrayRes[i] = `${arrayCom[i]}|${arrayRes[i]}\n`;
-    }
-    arrayArquivo.push(`${comm}|${resp}\n`);
-
-    GravarArquivo(arrayArquivo);
 }
 
 //verifica quando o comando foi chamado pelo chat
 function AtivarComandos(commandName, client, target) {
     // indica como fazer para criar os comandos personalizados
     if (commandName == "!CCom") {
-        client.say(target, "Entre nos Pontos do canal (a bolinha abaixo no chat) e compre a recomensa \"Crie seu Comando!\" Se estiver com 0 pontos, dê um Seguir e ganhe 300 pontos!");
+        client.say(target, "Entre nos Pontos do canal (a moeda abaixo no chat) e compre a recomensa \"Crie seu Comando!\" Se estiver com 0 pontos, dê um Seguir e ganhe 300 pontos!");
     }
     else {
         //comandos criados pelo chat:
         for (let i = 0; i < 9; i++) {
             if (commandName == arrayCom[i]) {
                 if (arrayRes[i] !== undefined) {
-                    client.say(target, `/me ${arrayRes[i]}`);
+                    client.say(target, `${arrayRes[i]}`);
                     console.log(`* Comando ${arrayCom[i]} executado!`);
                 }
                 else
-                    client.say(target, "Entre nos Pontos do canal (a bolinha abaixo no chat) e compre a recomensa \"Crie seu Comando!\" Se estiver com 0 pontos, dê um Seguir e ganhe 300 pontos!");
+                    client.say(target, "Entre nos Pontos do canal (a moeda abaixo no chat) e compre a recomensa \"Crie seu Comando!\" Se estiver com 0 pontos, dê um Seguir e ganhe 300 pontos!");
             }
         }
     }
@@ -165,6 +154,14 @@ function ExibeComandos() {
     };
     console.log(comTxt);
 
+    let arrayArquivo = [];
+    for (let i = 0; i < 9; i++) {
+        arrayArquivo.push(`${comTxt[i]}|${resTxt[i]}`);
+
+    }
+    arrayArquivo = arrayArquivo.join('\n');
+
+    GravarArquivo(arrayArquivo);
 
 
     for (let i = 0; i < 9; i++) {
@@ -188,12 +185,10 @@ function ExibeComandos() {
 
 
 function GetResTxt() {
-    console.log(resTxt);
     return resTxt;
 }
 
 function GetComTxt() {
-    console.log(comTxt);
     return comTxt;
 }
 
@@ -237,7 +232,7 @@ function GravarArquivo(aCom) {
     let arquivo = aCom;
 
     console.log(`arquivo> ${arquivo}`);
-    fs.writeFile(`${__dirname}/comandos.txt`, arquivo, { encoding: 'utf-8', flag: 'w' }, function (err) {
+    fs.writeFile(`${__dirname}/comandos.txt`, arquivo, { flag: 'w' }, function (err) { //encoding: 'utf-8',
         if (err) throw err;
         console.log('Arquivo salvo');
     })

@@ -4,6 +4,7 @@ var alreadyIn = []; // guarda os contatos já recebidos do Stream Holics
 
 function onJoin(channel, username, self, client) {
     let streamers = [
+        'binhacogumelo',
         'bug_elseif',
         'chicaocodes',
         'dornellestv',
