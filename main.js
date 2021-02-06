@@ -86,10 +86,8 @@ ipcMain.on('enviadados', (event, arg) => {
   client.on('join', (channel, username, self) => {
     try {
       sh.onJoin(channel, username, self, client);
-      //console.log("conectado ao SH");
     } catch (err) {
       console.log('Erro ao acessar SH!');
-      //console.log(err);
     }
   });
 
@@ -145,12 +143,10 @@ function onMessageHandler(target, context, msg, self) {
 
 ipcMain.on('enviaCom', (event, arg) => {
   commands.AtualizaCom(arg);
-  //console.log(`argCOM: ${arg} \n arrayCom: ${arrayCom} `);
 });
 
 ipcMain.on('enviaRes', (event, arg) => {
   commands.AtualizaRes(arg);
-  //console.log(`argRES: ${arg} \n arrayRes: ${arrayRes} `);
 });
 
 

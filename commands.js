@@ -133,7 +133,6 @@ function CarregaComandos(novoCom, índice) {
     com[índice].innerText = command;
     resTr[índice] = response;
 
-
 }
 
 function ExibeComandos() {
@@ -144,7 +143,6 @@ function ExibeComandos() {
     for (let i = 1; i <= 9; i++) {
         com.push(document.getElementById(`com${i}`));
     };
-
 
     let tr = [];
     for (let i = 1; i <= 9; i++) {
@@ -161,13 +159,11 @@ function ExibeComandos() {
     for (let i = 0; i < 9; i++) {
         resTxt.push(resTr[i]);
     };
-    console.log(resTxt);
 
     //envia os dados de comandos para o Main.js
     for (let i = 0; i < 9; i++) {
         comTxt.push(com[i].innerHTML);
     };
-    console.log(comTxt);
 
     let arrayArquivo = [];
     for (let i = 0; i < 9; i++) {
@@ -231,7 +227,6 @@ function LerArquivo(cliente) {
         linhas.forEach(function (linha) {
             comandos.push(linha);
         })
-        console.log(comandos);
 
         // trabalhando o msg para separar comando da resposta
         for (let i = 0; i < 9; i++) {
@@ -241,9 +236,6 @@ function LerArquivo(cliente) {
             comm = comandos[i].substring(0, comandos[i].indexOf(' '));
             resp = comandos[i].substring(comandos[i].indexOf(' ') + 1);
             if (cliente) {
-                //comTxt[i] = comm;
-                //resTxt[i] = resp;
-
                 let nCom = [comm, resp];
                 CarregaComandos(nCom, i); //usa elementos do DOM
             }
@@ -251,37 +243,24 @@ function LerArquivo(cliente) {
 
                 arrayCom[i] = comm;
                 arrayRes[i] = resp;
-
             }
-
         }
-        console.log('-----------');
-
-
     });
 }
 
 
 // --------------------------------------------------------------------------------------------
 function GravarArquivo(aCom) {
-
     let arquivo = aCom;
 
-    console.log(`arquivo> ${arquivo}`);
     fs.writeFile(`${__dirname}/comandos.txt`, arquivo, { flag: 'w' }, function (err) { //encoding: 'utf-8',
         if (err) throw err;
-        console.log('Arquivo salvo');
     })
 }
 
 
-
-
-
-
 module.exports = {
     CriarComandos, AtivarComandos, AtualizaCom, AtualizaRes,              // main.js
-    ReceberNovoComando, ExibeComandos, GetResTxt, GetComTxt, ZerarResCom,  // client.js
-    GravarArquivo, LerArquivo
-
+    ReceberNovoComando, ExibeComandos, GetResTxt, GetComTxt, ZerarResCom, // client.js
+    GravarArquivo, LerArquivo                                             // tratamento de arquivo
 };
