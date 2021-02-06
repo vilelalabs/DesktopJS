@@ -78,7 +78,7 @@ ipcMain.on('enviadados', (event, arg) => {
   // Create a client with our options
   client = new tmi.client(opts);
 
-  //chamar função para carregar os comandos no bot (LoadFile)
+  //pega os comandos do arquivo e coloca 'online'
 
   client.on('message', onMessageHandler);
   client.on('connected', onConnectedHandler);
@@ -156,10 +156,13 @@ ipcMain.on('enviaRes', (event, arg) => {
 
 // Chamado quando o bot se conecta ao chat da twitch
 function onConnectedHandler(addr, port) {
+
   console.log(`* Connected to ${addr}:${port}`);
   conectado = 'sim';
   confirmaConexao(win);
   conectado = 'nao';
+  commands.LerArquivo(false);
+
 }
 
 function confirmaConexao(window) {

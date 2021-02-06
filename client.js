@@ -30,6 +30,8 @@ function analisar() {
       document.getElementById('btnanalisar').value = "Já Conectado!";
       document.getElementById('config').style.display = "none";
       document.getElementById('connected').style.display = "block";
+
+      commands.LerArquivo(true);
     }
     else {
       alert("Não conectado! Verifique os dados de acesso");
@@ -45,16 +47,16 @@ function analisar() {
 
 ipcRenderer.on('conectado', (event, arg) => {
   conectado = arg;
-});
 
+});
 
 ipcRenderer.on('conexao', (event, message) => {
   alert(message);
+
 })
 
 
 ipcRenderer.on('novoComando', (event, arg) => {
-  //novoComando = arg;
   commands.ReceberNovoComando(arg);
   gravarChat();
 })

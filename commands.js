@@ -11,6 +11,7 @@ function AtualizaRes(arrayR) {
     arrayRes = arrayR;
 }
 
+
 // grava array de comandos e respostas criadas pelo chat (apenas os arrays globais)
 function CriarComandos(msg, client, target, win) {
     // cria o comando e coloca-o na fila de comandos
@@ -121,6 +122,19 @@ function ReceberNovoComando(nComando) {
     novoComando = nComando;
 }
 
+let com = [];
+function CarregaComandos(novoCom, índice) {
+
+    let command = novoCom[0];
+    let response = novoCom[1];
+
+    com.push(document.getElementById(`com${índice + 1}`));
+
+    com[índice].innerText = command;
+
+    //response (resTr?)
+}
+
 function ExibeComandos() {
     let command = novoComando[0];
     let response = novoComando[1];
@@ -156,7 +170,7 @@ function ExibeComandos() {
 
     let arrayArquivo = [];
     for (let i = 0; i < 9; i++) {
-        arrayArquivo.push(`${comTxt[i]}|${resTxt[i]}`);
+        arrayArquivo.push(`${comTxt[i]} ${resTxt[i]}`);
 
     }
     arrayArquivo = arrayArquivo.join('\n');
@@ -202,31 +216,52 @@ function ZerarResCom() {
 }
 
 
-/*******************************  PARA USO DO GRAVAÇÃO EM ARQUIVO  *********************************/
+/*******************************  PARA USO DO LEITURA E GRAVAÇÃO EM ARQUIVO  *********************************/
 
 //teste do acesso ao filesystem
 const fs = require('fs');
-
-var dadosT = ''; // para teste de leitura de dados em arquivo
 var comandos = [];
 
-//function LerArquivo() {
-//lê arquivo de teste
-fs.readFile(`./comandos.txt`, 'utf-8', function (err, data) {
-    if (err) throw err;
-    console.log(data);
-    dadosT = data;
-    console.log('-----------');
+function LerArquivo(cliente) {
+    fs.readFile(`./comandos.txt`, 'utf-8', function (err, data) {
+        if (err) throw err;
 
-    for (let i = 1; i <= 9; i++) {
-        if (dadosT.indexOf(`${i}<`) != -1)
-            comandos.push(dadosT.substring(dadosT.indexOf(`${i}<`) + 2, dadosT.indexOf(`>${i}`)));
-    }
-    console.log(comandos);
+        var linhas = data.split("\n");
+        linhas.forEach(function (linha) {
+            comandos.push(linha);
+        })
+        console.log(comandos);
 
-});
-//}
+        // trabalhando o msg para separar comando da resposta
+        for (let i = 0; i < 9; i++) {
+            let comm = '';
+            let resp = '';
 
+            comm = comandos[i].substring(0, comandos[i].indexOf(' '));
+            resp = comandos[i].substring(comandos[i].indexOf(' ') + 1);
+            if (cliente) {
+                comTxt[i] = comm;
+                resTxt[i] = resp;
+
+                let nCom = [comm, resp];
+                CarregaComandos(nCom, i); //usa elementos do DOM
+            }
+            else {
+
+                arrayCom[i] = comm;
+                arrayRes[i] = resp;
+
+            }
+
+        }
+        console.log('-----------');
+
+
+    });
+}
+
+
+// --------------------------------------------------------------------------------------------
 function GravarArquivo(aCom) {
 
     let arquivo = aCom;
@@ -246,6 +281,6 @@ function GravarArquivo(aCom) {
 module.exports = {
     CriarComandos, AtivarComandos, AtualizaCom, AtualizaRes,              // main.js
     ReceberNovoComando, ExibeComandos, GetResTxt, GetComTxt, ZerarResCom,  // client.js
-    GravarArquivo
+    GravarArquivo, LerArquivo
 
 };

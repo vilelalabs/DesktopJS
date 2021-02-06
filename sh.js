@@ -19,7 +19,6 @@ function onJoin(channel, username, self, client) {
         'profbrunolopes',
         'project_juan',
         'tairritadotio',
-        'vilelabot',
         'vitorbgs',
         'webmat1',
     ];
