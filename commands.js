@@ -38,8 +38,8 @@ function CriarComandos(msg, client, target, win) {
         return;
     }
 
-    if (comm.indexOf('!') != -1 || comm.indexOf(' ') != -1 || comm.indexOf('<') != -1 || comm.indexOf('>') != -1) {
-        client.say(target, "Comando NÃO salvo! Você não pode/precisa usar [!], espaço[ ] ou [< >] nos seus comandos!");
+    if (comm.indexOf('!') != -1 || comm.indexOf(' ') != -1 || comm.indexOf('<') != -1 || comm.indexOf('>') != -1 || comm.indexOf('&') != -1) {
+        client.say(target, "Comando NÃO salvo! Você não pode/precisa usar [!], [&], espaço[ ] ou [< >] nos seus comandos!");
         return;
     }
 
@@ -131,8 +131,9 @@ function CarregaComandos(novoCom, índice) {
     com.push(document.getElementById(`com${índice + 1}`));
 
     com[índice].innerText = command;
+    resTr[índice] = response;
 
-    //response (resTr?)
+
 }
 
 function ExibeComandos() {
@@ -240,8 +241,8 @@ function LerArquivo(cliente) {
             comm = comandos[i].substring(0, comandos[i].indexOf(' '));
             resp = comandos[i].substring(comandos[i].indexOf(' ') + 1);
             if (cliente) {
-                comTxt[i] = comm;
-                resTxt[i] = resp;
+                //comTxt[i] = comm;
+                //resTxt[i] = resp;
 
                 let nCom = [comm, resp];
                 CarregaComandos(nCom, i); //usa elementos do DOM
