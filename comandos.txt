@@ -1,9 +1,9 @@
-!ego ego = 102482%
-!temp agora ta fazer 30º
-!muito_fogo panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket
-!mentiraTem na verdade é 21°
-!coffee TPFufun TPFufun TPFufun TPFufun TPFufun TPFufun TPFufun TPFufun
-!pai :( :(
-!andre? SHEDÉ
-!clap ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHand
-!soubonito? sim
+!comando1 resp1
+!comando2 resp2
+!comando3 resp3
+!comando4 resp4
+!comando5 resp5
+!comando6 resp6
+!comando7 resp7
+!comando8 resp8
+!comando9 resp9
