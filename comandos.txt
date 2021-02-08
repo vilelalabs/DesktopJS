@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 !a aaaaaa
 !b BBB?
 !muito_fogo panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket panicBasket
@@ -7,3 +8,14 @@
 !andre? SHEDÉ
 !clap ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHands ShowOfHand
 !soubonito? sim
+=======
+!comando1 resp1
+!comando2 resp2
+!comando3 resp3
+!comando4 resp4
+!comando5 resp5
+!comando6 resp6
+!comando7 resp7
+!comando8 resp8
+!comando9 resp9
+>>>>>>> af90eee234c412c251c67bc19f7d1d0b4a93b5fd
