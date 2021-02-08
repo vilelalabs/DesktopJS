@@ -1,9 +1,5 @@
+package-lock.json
 node_modules/
-
 out/
 backup/
-
-package-lock.json
-
 comandos.txt
-
