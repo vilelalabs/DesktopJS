@@ -1,7 +1,7 @@
 // In renderer process (web page).
 const { ipcRenderer, remote } = require('electron')
 
-const commands = require('./commands.js');
+const commands = require('./modulos/commands.js');
 
 
 var conectado = 'nao';

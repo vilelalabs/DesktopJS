@@ -1,9 +1,10 @@
 
 const { app, BrowserWindow, ipcRenderer } = require('electron')
 
-const sh = require('./sh.js');
-const other = require('./other.js');
-const commands = require('./commands.js');
+const sh = require('./modulos/sh.js');
+const other = require('./modulos/other.js');
+const commands = require('./modulos/commands.js');
+const tts = require('./modulos/tts.js');
 
 var comandos = [];
 
@@ -98,7 +99,6 @@ ipcMain.on('enviadados', (event, arg) => {
 
 })
 
-
 // Called every time a message comes in
 function onMessageHandler(target, context, msg, self) {
   if (self) { return; } // Ignore messages from the bot
@@ -120,8 +120,9 @@ function onMessageHandler(target, context, msg, self) {
   }
   // Recompensa "Quero Falar!"
   else if (context["custom-reward-id"] === "b2978d23-f360-420f-82d0-47981919bd5e") {
-    let texto = "!speak " + msg;
-    client.say(target, texto);
+    //let texto = "!speak " + msg;
+    tts.LerTexto(msg, tts.TocarSom());
+    //client.say(target, texto);
     console.log("Recompensa \"Falar Texto\" resgatada");
 
   }
