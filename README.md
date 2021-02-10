@@ -1,3 +1,6 @@
+*Project created and updated live at  [Twitch.Tv/HenriqueVilelaMusic](https://twitch.tv/henriquevilelamusic) *
+
+
 *DesktopJS is known by the EasyTwitchBot name*
 
 # Easy Twitch Bot
