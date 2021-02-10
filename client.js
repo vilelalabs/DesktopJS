@@ -1,11 +1,9 @@
 // In renderer process (web page).
 const { ipcRenderer, remote } = require('electron')
-
 const commands = require('./modulos/commands.js');
-
+const auth = require('./auth.js');
 
 var conectado = 'nao';
-
 
 // análise para o login
 function analisar() {
@@ -55,12 +53,10 @@ ipcRenderer.on('conexao', (event, message) => {
 
 })
 
-
 ipcRenderer.on('novoComando', (event, arg) => {
   commands.ReceberNovoComando(arg);
   gravarChat();
 })
-
 
 // gravação dos comandos enviados pelo chat
 function gravarChat() {
@@ -71,5 +67,13 @@ function gravarChat() {
   ipcRenderer.send('enviaCom', commands.GetComTxt());
 
   commands.ZerarResCom();
+
+}
+
+function autoAuth() {
+  let pass = document.getElementById('txtauth');
+  setTimeout(() => {
+    pass.value = auth.getAuth('twitch');
+  }, 1000);
 
 }
