@@ -220,7 +220,7 @@ const fs = require('fs');
 var comandos = [];
 
 function LerArquivo(cliente) {
-    fs.readFile(`./comandos.txt`, 'utf-8', function (err, data) {
+    fs.readFile(`recursos/comandos.txt`, 'utf-8', function (err, data) {
         if (err) throw err;
 
         var linhas = data.split("\n");
@@ -253,7 +253,7 @@ function LerArquivo(cliente) {
 function GravarArquivo(aCom) {
     let arquivo = aCom;
 
-    fs.writeFile(`${__dirname}/comandos.txt`, arquivo, { flag: 'w' }, function (err) { //encoding: 'utf-8',
+    fs.writeFile(`recursos/comandos.txt`, arquivo, { flag: 'w' }, function (err) { //encoding: 'utf-8',
         if (err) throw err;
     })
 }

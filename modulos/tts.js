@@ -10,7 +10,7 @@ function LerTexto(texto, cb_play) {
     var gtts = new gTTS(texto, 'pt-br');
 
     try {
-        gtts.save(`${__dirname}/audio.mp3`, () => {
+        gtts.save(`${__dirname}/../recursos/audio.mp3`, () => {
             console.log("texto Convertido com sucesso!");
         });
     } catch (err) {
@@ -21,7 +21,7 @@ function LerTexto(texto, cb_play) {
 }
 function TocarSom() {
     try {
-        sound.play(`${__dirname}/audio.mp3`);
+        sound.play(`${__dirname}/../recursos/audio.mp3`);
     } catch (error) {
         console.log('erro ao tocar o som');
         console.log(error);
