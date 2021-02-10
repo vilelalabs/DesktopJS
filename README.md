@@ -1,0 +1,16 @@
+*DesktopJS is known by the EasyTwitchBot name*
+
+# Easy Twitch Bot
+
+The idea of this project is to give permission for twitch chatters and audience to create new commands for everyone to use in chat.
+Another feature is to have a Desktop UI to login with the twitch OAuth and to see the commands and _other future features will be added_.
+
+## Recursos Folder
+This folder have example files that are created and updated by the own app.
+
+## Auto authenticator
+
+In order to make an auto authenticator, you have to change the **auth2.js** filename to **auth.js** and fill the correct value of the auth variable inside (signed by **TWITCH_OAUTH**).
+
+## Other
+- **package-lock.json** file not included
