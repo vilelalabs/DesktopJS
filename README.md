@@ -12,8 +12,10 @@ Another feature is to have a Desktop UI to login with the twitch OAuth and to se
 This folder have example files that are created and updated by the own app.
 
 ## Auto authenticator
-
 In order to make an auto authenticator, you have to change the **auth2.js** filename to **auth.js** and fill the correct value of the auth variable inside (signed by **TWITCH_OAUTH**).
+
+## Stream Holics
+The bot has a file called **sh.js** that makes an automatic 'advertise' for the channels listed on the **streamers** array.
 
 ## Other
 - **package-lock.json** file not included
