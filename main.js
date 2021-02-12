@@ -5,9 +5,11 @@ const sh = require('./modulos/sh.js');
 const other = require('./modulos/other.js');
 const commands = require('./modulos/commands.js');
 const tts = require('./modulos/tts.js');
+const ad = require('./modulos/ad.js');
 
 var comandos = [];
 
+var ad_start = false; // habilita/desabilita ads automáticos
 
 //cria janela globalmente para poder ser acessada por outras funções além da createWindow
 var win;
@@ -93,18 +95,28 @@ ipcMain.on('enviadados', (event, arg) => {
   });
 
 
+
+
   // Connect to Twitch:
 
   client.connect();
 
 })
 
-// Called every time a message comes in
+// Called every time a message comes in ------------------------------------
 function onMessageHandler(target, context, msg, self) {
-  if (self) { return; } // Ignore messages from the bot
+  // Ignore messages from the bot
+  if (self) { return; }
 
   // pega característica da mensagem pelo "context" [para novas recompensas]
   //console.log(context["custom-reward-id"]);
+
+  //----------------- opções que rodam automaticamente ------------------------------
+  if (ad_start) {
+    ad.RodarAd(30, 30);
+    console.log('Iniciando ads automaticos');
+    ad_start = false;
+  }
 
   //----------------- opções baseadas em recompensas do canal -----------------------
 
@@ -120,9 +132,9 @@ function onMessageHandler(target, context, msg, self) {
   }
   // Recompensa "Quero Falar!"
   else if (context["custom-reward-id"] === "b2978d23-f360-420f-82d0-47981919bd5e") {
-    //let texto = "!speak " + msg;
-    tts.LerTexto(msg, tts.TocarSom());
-    //client.say(target, texto);
+    //tts.LerTexto(msg, tts.TocarSom());
+    let texto = "!speak " + msg;
+    client.say(target, texto);
     console.log("Recompensa \"Falar Texto\" resgatada");
 
   }
@@ -159,7 +171,7 @@ function onConnectedHandler(addr, port) {
   confirmaConexao(win);
   conectado = 'nao';
   commands.LerArquivo(false);
-
+  ad_start = true;
 }
 
 function confirmaConexao(window) {

@@ -1,5 +1,4 @@
 
-
 /**************************************** PARA USO DO MAIN.JS **************************************/
 var arrayCom = [];
 var arrayRes = [];
@@ -240,7 +239,6 @@ function LerArquivo(cliente) {
                 CarregaComandos(nCom, i); //usa elementos do DOM
             }
             else {
-
                 arrayCom[i] = comm;
                 arrayRes[i] = resp;
             }
@@ -257,7 +255,6 @@ function GravarArquivo(aCom) {
         if (err) throw err;
     })
 }
-
 
 module.exports = {
     CriarComandos, AtivarComandos, AtualizaCom, AtualizaRes,              // main.js
