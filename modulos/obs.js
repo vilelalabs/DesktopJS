@@ -51,11 +51,6 @@ function TelaComandos(activate) {
     obs.on('error', err => {
         console.error('socket error:', err);
     });
-    console.log('teste');
-
-
-
-
 }
 
 module.exports = { TelaComandos }
