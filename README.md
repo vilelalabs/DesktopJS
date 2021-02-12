@@ -19,5 +19,8 @@ Running ads automatically (see details at the top of the file **ad.js**)
 (...)
 
 
+## Stream Holics
+The bot has a file called **sh.js** that makes an automatic 'advertise' for the channels listed on the **streamers** array.
+
 ## Other
 - **package-lock.json** file not included
