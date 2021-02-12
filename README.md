@@ -3,7 +3,7 @@ Project created and updated live at  [Twitch.Tv/HenriqueVilelaMusic](https://twi
 
 *DesktopJS is known by the EasyTwitchBot name*
 
-# Easy Twitch Bot
+# 🤖Easy Twitch Bot
 
 The idea of this project is to give permission for twitch chatters and audience to create new commands for everyone to use in chat.
 Another feature is to have a Desktop UI to login with the twitch OAuth and to see the commands and _other future features will be added_.
