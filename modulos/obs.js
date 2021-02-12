@@ -4,7 +4,6 @@ const OBSWebSocket = require('obs-websocket-js');
 
 const obs = new OBSWebSocket();
 
-
 function TelaComandos(activate) {
     obs.connect({
         adress: 'localhost:4444',
@@ -15,19 +14,7 @@ function TelaComandos(activate) {
             return obs.send('GetSceneList');
         })
         .then(data => {
-            //console.log(`${data.scenes.length} cenas disponíveis!`);
 
-            /* obs.send('SetCurrentScene', {
-                 'scene-name': 'Principal 02 - Mesa'
-             });*/
-
-            //console.log(data.scenes[2].sources[1]);
-            //console.log(data.scenes[2].name);
-
-            /*obs.send('GetSourceSettings', { sourceName: data.scenes[2].sources[1].name })
-                 .then((data) => {
-                     console.log(data)
-                 })*/
             obs.send('SetSourceSettings', {
                 sourceName: data.scenes[2].sources[1].name,
                 sourceSettings: {
@@ -54,3 +41,18 @@ function TelaComandos(activate) {
 }
 
 module.exports = { TelaComandos }
+
+
+            //console.log(`${data.scenes.length} cenas disponíveis!`);
+
+/* obs.send('SetCurrentScene', {
+     'scene-name': 'Principal 02 - Mesa'
+ });*/
+
+            //console.log(data.scenes[2].sources[1]);
+            //console.log(data.scenes[2].name);
+
+/*obs.send('GetSourceSettings', { sourceName: data.scenes[2].sources[1].name })
+     .then((data) => {
+         console.log(data)
+     })*/
