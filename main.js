@@ -6,7 +6,7 @@ const other = require('./modulos/other.js');
 const commands = require('./modulos/commands.js');
 const tts = require('./modulos/tts.js');
 const ad = require('./modulos/ad.js');
-
+const obs = require('./modulos/obs.js');
 var comandos = [];
 
 var ad_start = false; // habilita/desabilita ads automáticos
@@ -143,6 +143,15 @@ function onMessageHandler(target, context, msg, self) {
 
   // limpa espaços vazios na mensagem
   const commandName = msg.trim();
+
+  if (commandName == '!comandosOn' || commandName == '!comandoson') {
+    client.say(target, '/me Comandos mostrados na tela');
+    obs.TelaComandos(true);
+  }
+  else if (commandName == '!comandosOff' || commandName == '!comandosoff') {
+    client.say(target, '/me Comandos tirados da tela');
+    obs.TelaComandos(false);
+  }
 
   //chama função tabuada
   other.tabuada(target, msg, commandName, client);
