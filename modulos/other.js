@@ -1,4 +1,5 @@
 exports.tabuada = tabuada;
+exports.hello = hello;
 
 function tabuada(alvo, mensagem, comando, client) {
 
@@ -23,5 +24,12 @@ function tabuada(alvo, mensagem, comando, client) {
 
         client.say(alvo, final);
         console.log(`* Comando ${comando} executado`);
+    }
+}
+
+function hello(alvo, mensagem, comando, client) {
+    if (comando == "!hello") {
+        client.say(alvo, 'Hello World!');
+        return;
     }
 }

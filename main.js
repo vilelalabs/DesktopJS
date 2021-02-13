@@ -155,6 +155,8 @@ function onMessageHandler(target, context, msg, self) {
 
   //chama função tabuada
   other.tabuada(target, msg, commandName, client);
+  //chama função hello
+  other.hello(target, msg, commandName, client);
 
   //chama os comantos criados
   commands.AtivarComandos(commandName, client, target);
