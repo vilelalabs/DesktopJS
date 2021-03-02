@@ -19,7 +19,7 @@ Running ads automatically (see details at the top of the file **ad.js**)
 (...)
 
 ### OBS
-For now, only a option to make visible or not the EasyTwitchBot UI witha function on **obs.js** module.
+For now, only a option to make visible or not the EasyTwitchBot UI with a function on **obs.js** module.
 
 ### Stream Holics
 The bot has a file called **sh.js** that makes an automatic 'advertise' for the channels listed on the **streamers** array.
