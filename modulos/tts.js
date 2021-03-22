@@ -7,6 +7,7 @@ const sound = require('sound-play');
 
 function LerTexto(texto, cb_play) {
 
+    //TODO: habilitar para escolha de linguas diferentes
     var gtts = new gTTS(texto, 'pt-br');
 
     try {

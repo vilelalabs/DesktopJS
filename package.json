@@ -17,13 +17,16 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "^11.1.1",
+    "electron": "^11.3.0",
     "tmi": "^2.0.0"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "electron-squirrel-startup": "^1.0.0",
+    "gtts": "^0.2.1",
     "obs-websocket-js": "^4.0.2",
-    "sound-play": "^1.1.0"
+    "sound-play": "^1.1.0",
+    "tmi.js": "^1.7.5"
   },
   "config": {
     "forge": {

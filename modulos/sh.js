@@ -7,12 +7,15 @@ function onJoin(channel, username, self, client) {
         'binhacogumelo',
         'bug_elseif',
         'chicaocodes',
+        'daviprm_',
         'dornellestv',
         'henriquevilelamusic',
+        'hugo_mesquita',
         'indice_do_conhecimento',
         'julhamarcolan',
         'julialabs',
         'kaduzius',
+        'killercoder_',
         'kindrak',
         'locutormobile',
         'maiattodev',
@@ -27,6 +30,7 @@ function onJoin(channel, username, self, client) {
         'umprogramadoraleatorio',
         'vitorbgs',
         'webmat1',
+        'xtecna',
     ];
 
     if (streamers.includes(username) && !alreadyIn.includes(username)) {

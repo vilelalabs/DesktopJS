@@ -132,11 +132,8 @@ function onMessageHandler(target, context, msg, self) {
   }
   // Recompensa "Quero Falar!"
   else if (context["custom-reward-id"] === "b2978d23-f360-420f-82d0-47981919bd5e") {
-    //tts.LerTexto(msg, tts.TocarSom());
-    let texto = "!speak " + msg;
-    client.say(target, texto);
+    tts.LerTexto(msg, tts.TocarSom());
     console.log("Recompensa \"Falar Texto\" resgatada");
-
   }
 
   //------------------- comandos diretos no chat ------------------------------------
