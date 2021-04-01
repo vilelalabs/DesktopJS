@@ -113,7 +113,7 @@ function onMessageHandler(target, context, msg, self) {
 
   //----------------- opções que rodam automaticamente ------------------------------
   if (ad_start) {
-    ad.RodarAd(30, 30);
+    ad.RodarAd(30, 20);
     console.log('Iniciando ads automaticos');
     ad_start = false;
   }

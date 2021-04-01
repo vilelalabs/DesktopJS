@@ -1,6 +1,6 @@
 /*
   ad_time_sec: tempo do AD em si (ver função /commercial da Twitch) (em segundos)
-  ad_interval_min: tempo dew intervalos entre ads (em minutos)
+  ad_interval_min: tempo de intervalos entre ads (em minutos)
 
   Authorization e Client-id devem ser gerados em: https://twitchtokengenerator.com/ , habilitando
   os scopes (escopos): 
@@ -23,7 +23,7 @@ async function RodarAd(ad_time_sec, ad_interval_min) {
     };
 
     await console.log("tentando rodar comercial...");
-    //recebe o broadcater ID via GET
+    //recebe o broadcaster ID via GET
     response = await axios.get(`https://api.twitch.tv/helix/users?`, options);
     let broadcasterID = response.data.data[0].id;
 
