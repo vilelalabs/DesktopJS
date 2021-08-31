@@ -1,5 +1,6 @@
 exports.tabuada = tabuada;
 exports.hello = hello;
+exports.prime = prime;
 
 function tabuada(alvo, mensagem, comando, client) {
 
@@ -30,6 +31,17 @@ function tabuada(alvo, mensagem, comando, client) {
 function hello(alvo, mensagem, comando, client) {
     if (comando == "!hello") {
         client.say(alvo, 'Hello World!');
+        return;
+    }
+    else if (comando == "!world") {
+        client.say(alvo, 'Você não deveria começar isto com um !hello???');
+        return;
+    }
+}
+
+function prime(alvo, mensagem, comando, client) {
+    if (comando == "!prime" || comando == "!Prime") {
+        client.say(alvo, '1. Acesse https://gaming.amazon.com |-| 2. Faca login na sua conta da amazon.com.br |-| 3. Selecione vincular conta da Twitch |-| 4. Faca login na sua conta da Twitch e selecione Confirmar. |-| 5. aqui no canal Henrique Vilela Music, clique em Inscrever-se!');
         return;
     }
 }

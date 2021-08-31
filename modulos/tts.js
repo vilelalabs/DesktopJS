@@ -1,5 +1,3 @@
-//https://swapi.dev/api/planets/1/
-//https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json
 
 const gTTS = require('gtts');
 const sound = require('sound-play');

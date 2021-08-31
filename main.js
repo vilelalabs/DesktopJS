@@ -86,6 +86,7 @@ ipcMain.on('enviadados', (event, arg) => {
   client.on('message', onMessageHandler);
   client.on('connected', onConnectedHandler);
   client.on('disconnected', onDisconnected);
+  
   client.on('join', (channel, username, self) => {
     try {
       sh.onJoin(channel, username, self, client);
@@ -93,8 +94,6 @@ ipcMain.on('enviadados', (event, arg) => {
       console.log('Erro ao acessar SH!');
     }
   });
-
-
 
 
   // Connect to Twitch:
@@ -154,7 +153,10 @@ function onMessageHandler(target, context, msg, self) {
   other.tabuada(target, msg, commandName, client);
   //chama função hello
   other.hello(target, msg, commandName, client);
-
+//chama função prime
+  other.prime(target, msg, commandName, client);
+  
+  
   //chama os comantos criados
   commands.AtivarComandos(commandName, client, target);
 
