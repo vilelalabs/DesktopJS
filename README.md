@@ -1,7 +1,7 @@
 Project created and updated live at  [Twitch.Tv/HenriqueVilelaMusic](https://twitch.tv/henriquevilelamusic)
-
-
 *DesktopJS is known by the EasyTwitchBot name*
+### This bot will not be updated!
+### Changed to [VilelaBot](https://github.com/vilelalabs/VilelaBot) (more lighter, without UI from electronjs and with more resources)
 
 # 🤖Easy Twitch Bot
 
@@ -26,3 +26,4 @@ The bot has a file called **sh.js** that makes an automatic 'advertise' for the 
 
 ### Other
 - **package-lock.json** file not included
+
